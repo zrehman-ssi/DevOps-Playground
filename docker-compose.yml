@@ -11,8 +11,10 @@ services:
         aliases:
           - flask-app
   server:
-    image: nginx:latest
     container_name: nginx_server
+    build: 
+      context: ./nginx/
+      dockerfile: Dockerfile
     depends_on:
       - web
     ports:
