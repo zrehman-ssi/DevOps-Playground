@@ -1,0 +1,13 @@
+version: "3.7"
+
+services: 
+  jenkins:
+    container_name: jenkins-with-docker-compose
+    build: 
+      context: ./jenkins-docker-image/
+      dockerfile: Dockerfile
+    volumes: 
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /home/jenkins_home:/var/jenkins_home
+    ports: 
+      - "8090:8080"
